@@ -1,0 +1,65 @@
+:root {
+  --clr-black: black;
+  --clr-white: white;
+  --clr-gold: #cead66;
+
+  --fhdr: "Montserrat", sans-serif;
+  --fbody: "Open Sans", sans-serif;
+  --fw-light: 200;
+  --fw-normal: 400;
+  --fw-bold: 600;
+
+  --fs-400: 0.9275rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.625rem;
+  --fs-700: 1.875rem;
+  --fs-900: 2.5rem;
+
+  --gradient: linear-gradient(
+    45deg,
+    var(--clr-white),
+    var(--clr-gold),
+    var(--clr-white)
+  );
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fhdr);
+  font-weight: var(--fw-normal);
+  line-height: 1.2;
+  color: var(--clr-white);
+}
+
+*,
+*::before,
+**::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--clr-black);
+  font-family: var(--fbody);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-normal);
+  font-optical-sizing: auto; /* Enables optical sizing */
+  line-height: 1.4;
+  color: var(--clr-white);
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: var(--fs-900);
+  font-weight: var(--fw-bold);
+}
+
+h2 {
+  font-size: var(--fs-700);
+  font-weight: var(--fw-normal);
+}

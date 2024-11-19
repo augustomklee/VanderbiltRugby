@@ -1,0 +1,101 @@
+---
+
+---
+
+<header>
+  <nav>
+    <ul class="nav__list">
+      <li class="nav__list-item">
+        <a href="/" class="nav__link">Home</a>
+      </li>
+      <li class="nav__list-item">
+        <a href="/roster" class="nav__link">Roster</a>
+      </li>
+      <li class="nav__list-item">
+        <a href="/schedule" class="nav__link">Schedule</a>
+      </li>
+      <li class="nav__list-item nav__item-instagram">
+        <a
+          class="nav__link nav__link-instagram"
+          href="https://www.instagram.com/vandyrugby/"
+          target="_blank"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: absolute;
+    z-index: 4;
+    padding: 0;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-top: 2rem;
+  }
+
+  .nav__list {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: var(--fs-400);
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  .nav__list-item {
+    margin-inline: auto;
+  }
+
+  .nav__list li:first-of-type {
+    margin-left: 2rem;
+  }
+
+  @media screen and (min-width: 425px) {
+    .nav__list {
+      justify-content: center;
+    }
+
+    .nav__list-item {
+      margin-inline: 1.5rem;
+    }
+
+    /* .nav__list li:first-of-type {
+      margin-left: 0;
+    } */
+  }
+
+  .nav__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .nav__link:hover {
+    color: var(--clr-gold);
+  }
+
+  .nav__link-instagram {
+    margin: 0;
+  }
+
+  .nav__item-instagram {
+    height: 23.75px;
+    margin-right: 2rem;
+  }
+
+  .fab {
+    font-size: var(--fs-600);
+    color: var(--clr-white);
+  }
+
+  .fab:hover {
+    color: var(--clr-gold);
+  }
+</style>

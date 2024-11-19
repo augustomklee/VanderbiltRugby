@@ -1,0 +1,69 @@
+---
+
+---
+
+<div class="schedule__image">
+  <h1 class="schedule__body shine">Tuesday: 5 - 7pm</h1>
+  <h1 class="schedule__body shine">Thursday: 5 - 7pm</h1>
+  <h1 class="schedule__body shine">Location: Rec Grass Field</h1>
+</div>
+
+<style>
+  .schedule__image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .schedule__image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(/images/schedule-image.JPG);
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    z-index: 1;
+  }
+
+  .schedule__image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey tint */
+    z-index: 2;
+  }
+
+  .schedule__body {
+    position: relative;
+    z-index: 3;
+    background-image: var(--gradient);
+    background-clip: text;
+    background-size: 700%;
+    color: transparent;
+    animation: shine 10s infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: left;
+    }
+    /* 50% {
+      background-position: center;
+    } */
+    100% {
+      background-position: right;
+    }
+  }
+</style>

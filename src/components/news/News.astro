@@ -1,0 +1,152 @@
+---
+interface InstagramPost {
+  id: string;
+  caption?: string;
+  media_type: string;
+  media_url: string;
+  permalink: string;
+  thumbnail_url?: string;
+  timestamp: string;
+}
+
+const INSTAGRAM_TOKEN = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
+
+async function getInstagramPosts(): Promise<InstagramPost[]> {
+  try {
+    const response = await fetch(
+      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_TOKEN}`
+    );
+    const data = await response.json();
+    return data.data || [];
+  } catch (error) {
+    console.error("Error fetching Instagram posts:", error);
+    return [];
+  }
+}
+
+const posts = await getInstagramPosts();
+---
+
+<div class="news__wrapper">
+  <h2 class="news__title">Latest from Instagram</h2>
+  <div class="news__grid">
+    {
+      posts.length > 0
+        ? posts.slice(0, 8).map((post: InstagramPost) => (
+            <a
+              href={post.permalink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="news__card"
+            >
+              <img
+                src={post.media_url}
+                alt={post.caption?.slice(0, 100) || "Instagram post"}
+                class="news__image"
+              />
+              {post.caption && (
+                <p class="news__caption">
+                  {post.caption.slice(0, 100)}
+                  {post.caption.length > 100 ? "..." : ""}
+                </p>
+              )}
+            </a>
+          ))
+        : Array(8)
+            .fill(null)
+            .map(() => (
+              <div class="news__card news__card--loading">
+                <div class="news__image--placeholder" />
+                <div class="news__caption--placeholder" />
+              </div>
+            ))
+    }
+  </div>
+</div>
+
+<style>
+  .news__wrapper {
+    margin: 2rem auto;
+    width: 80%;
+  }
+
+  .news__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .news__title {
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 999px) {
+    .news__card:nth-child(n + 5) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1340px) {
+    .news__card:nth-child(n + 7) {
+      display: none;
+    }
+  }
+  .news__card {
+    background: var(--clr-gold);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .news__card:hover {
+    transform: scale(1.01);
+  }
+
+  .news__image {
+    width: 100%;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  .news__caption {
+    font-size: var(--fs-400);
+    color: var(--clr-black);
+    margin-block: 0.7rem;
+    margin-inline: 1rem;
+  }
+
+  /* Loading state styles */
+  .news__card--loading {
+    pointer-events: none;
+  }
+
+  .news__image--placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .news__caption--placeholder {
+    height: 3rem;
+    margin: 1rem;
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+</style>

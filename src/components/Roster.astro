@@ -1,0 +1,64 @@
+<div class="roster__image">
+  <!-- <ul></ul> -->
+  <h1 class="roster__title">Work In Progress...</h1>
+</div>
+
+<style>
+  .roster__image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .roster__image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(/images/team-talk.JPG);
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    z-index: 1;
+  }
+
+  .roster__image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey tint */
+    z-index: 2;
+  }
+
+  .roster__title {
+    position: relative;
+    z-index: 3;
+    background-image: var(--gradient);
+    background-clip: text;
+    background-size: 700%;
+    color: transparent;
+    animation: shine 10s infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: left;
+    }
+    /* 50% {
+        background-position: center;
+      } */
+    100% {
+      background-position: right;
+    }
+  }
+</style>
