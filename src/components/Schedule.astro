@@ -48,20 +48,28 @@
   .schedule__body {
     position: relative;
     z-index: 3;
+    text-align: center;
     background-image: var(--gradient);
     background-clip: text;
     background-size: 700%;
     color: transparent;
     animation: shine 10s infinite;
+    padding-inline: 2rem;
+  }
+
+  @media screen and (max-width: 425px) {
+    .schedule__body {
+      font-size: 2rem;
+    }
   }
 
   @keyframes shine {
     0% {
       background-position: left;
     }
-    /* 50% {
+    50% {
       background-position: center;
-    } */
+    }
     100% {
       background-position: right;
     }
