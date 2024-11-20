@@ -1,12 +1,33 @@
 <div class="hero__image">
   <div class="hero__wrapper">
     <img class="hero__logo" src="/images/vurfc-logo.png" alt="Hero logo" />
-    <h1 class="hero__title">2024 FALL 15'S RUGBY SEASON</h1>
-    <a href="/schedule" class="hero__link">
+    <h1 class="hero__title"></h1>
+    <a
+      href="https://anchorlink.vanderbilt.edu/organization/vurfc"
+      class="hero__link"
+    >
       <button class="hero__link-button">JOIN NOW</button></a
     >
   </div>
 </div>
+
+<script>
+  // Changes the hero title based on the current month
+  document.addEventListener("DOMContentLoaded", function () {
+    const heroTitle = document.querySelector(".hero__title");
+    const currentDate = new Date();
+    const month = currentDate.getMonth(); // getMonth() returns 0 for January, 1 for February, etc.
+    const year = currentDate.getFullYear();
+
+    if (heroTitle) {
+      if (month >= 5 && month <= 11) {
+        heroTitle.textContent = year + " FALL 15'S RUGBY SEASON";
+      } else if (month >= 0 && month <= 4) {
+        heroTitle.textContent = year + " SPRING 7'S RUGBY SEASON";
+      }
+    }
+  });
+</script>
 
 <style>
   .hero__image {
