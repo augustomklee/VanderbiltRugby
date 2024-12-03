@@ -7,7 +7,7 @@
   node_bundler = "esbuild"
 
 [functions.refresh-instagram-token]
-  schedule = "@every 50d"
+  schedule = "0 0 */25 * *"
 
 [[headers]]
   for = "/*"
