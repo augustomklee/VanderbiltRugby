@@ -2,6 +2,14 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[scheduled]]
+  function = "refresh-instagram-token"
+  schedule = "@every 50d"
 
 [[headers]]
   for = "/*"
