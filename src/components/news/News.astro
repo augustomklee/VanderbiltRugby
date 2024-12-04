@@ -28,7 +28,14 @@ const posts = await getInstagramPosts();
 ---
 
 <div class="news__wrapper">
-  <h2 class="news__title">Latest from Instagram</h2>
+  <div class="news__header">
+    <h2 class="news__title">Latest from Instagram</h2>
+    <a
+      href="https://www.instagram.com/vandyrugby/"
+      class="news__link"
+      target="_blank">@vandyrugby</a
+    >
+  </div>
   <div class="news__grid">
     {
       posts.length > 0
@@ -70,6 +77,32 @@ const posts = await getInstagramPosts();
     padding-inline: 2rem;
     width: 80%;
   }
+  .news__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 425px) {
+    .news__header {
+      flex-direction: column; */
+    }
+  }
+
+  .news__title {
+    margin: 0;
+  }
+
+  .news__link {
+    font-size: var(--fs-300);
+    color: var(--clr-white);
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  .news__link:hover {
+    color: var(--clr-gold);
+  }
 
   .news__grid {
     display: grid;
@@ -77,11 +110,6 @@ const posts = await getInstagramPosts();
     gap: 1.5rem;
     padding: 0;
     margin: 0;
-  }
-
-  .news__title {
-    margin: 0;
-    margin-bottom: 1.5rem;
   }
 
   @media (max-width: 999px) {
