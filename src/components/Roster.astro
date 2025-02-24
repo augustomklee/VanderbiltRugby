@@ -1,65 +1,112 @@
-<div class="roster__image">
-  <h1 class="roster__title">Work In Progress...</h1>
-</div>
+<div class="roster__wrapper">
+  <div class="roster__header">
+    <h1 class="roster__title">Coaches</h1>
+  </div>
 
-<style>
-  .roster__image {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  <div class="roster__grid">
+    <div class="roster__card">
+      <img
+        src="/images/coaches/head-coach.jpg"
+        alt="Head Coach"
+        class="coach__image"
+      />
+      <p class="roster__name">Head Coach James Snell</p>
+    </div>
+    <div class="roster__card">
+      <img
+        src="/images/coaches/assistant-coach.jpg"
+        alt="Assistant Coach"
+        class="coach__image"
+      />
+      <p class="roster__name">Assistant Coach Dan</p>
+    </div>
+  </div>
 
-  .roster__image::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url(/images/team-talk.JPG);
-    background-size: cover;
-    background-position: center;
-    filter: blur(1px);
-    z-index: 1;
-  }
-
-  .roster__image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey tint */
-    z-index: 2;
-  }
-
-  .roster__title {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    background-image: var(--gradient);
-    background-clip: text;
-    background-size: 700%;
-    color: transparent;
-    animation: shine 10s infinite;
-    padding-inline: 2rem;
-  }
-
-  @keyframes shine {
-    0% {
-      background-position: left;
+  <style>
+    .roster__wrapper {
+      margin: 5.3rem auto;
+      padding-inline: 2rem;
+      width: 80%;
     }
-    50% {
+    .roster__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .roster__grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(250px, 2fr));
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .roster__card {
+      background: var(--clr-gold);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .roster__image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      min-height: 70vh;
+    }
+
+    .roster__image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url(/images/team-talk.JPG);
+      background-size: cover;
       background-position: center;
+      filter: blur(1px);
+      z-index: 1;
     }
-    100% {
-      background-position: right;
+
+    .roster__image::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey tint */
+      z-index: 2;
     }
-  }
-</style>
+    .roster__header {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .roster__title {
+      margin: 0;
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: left;
+      }
+      50% {
+        background-position: center;
+      }
+      100% {
+        background-position: right;
+      }
+    }
+  </style>
+</div>
