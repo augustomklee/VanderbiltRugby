@@ -3,9 +3,16 @@
 ---
 
 <div class="schedule__image">
-  <h1 class="schedule__body shine">Tuesday: 5 - 7pm</h1>
-  <h1 class="schedule__body shine">Thursday: 5 - 7pm</h1>
-  <h1 class="schedule__body shine">Location: Rec Grass Field</h1>
+  <h1 class="schedule__practice">
+    Practice Times:<br /> Tuesday & Thursday: 5:30 - 7pm <br />
+    Location: Rec Grass Field
+  </h1>
+</div>
+<div class="schedule__wrapper">
+  <div class="schedule__header">
+    <h1 class="schedule__title">Schedule</h1>
+  </div>
+  <div class="schedule__grid"></div>
 </div>
 
 <style>
@@ -45,7 +52,7 @@
     z-index: 2;
   }
 
-  .schedule__body {
+  .schedule__practice {
     position: relative;
     z-index: 3;
     text-align: center;
@@ -53,8 +60,23 @@
     background-clip: text;
     background-size: 700%;
     color: transparent;
-    animation: shine 10s infinite;
     padding-inline: 2rem;
+  }
+
+  .schedule__wrapper {
+    margin: 2rem auto;
+    padding-inline: 2rem;
+    width: 80%;
+  }
+
+  .schedule__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .schedule__title {
+    margin: 0;
   }
 
   @media screen and (max-width: 425px) {
