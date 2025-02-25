@@ -10,90 +10,122 @@
 </div>
 <div class="schedule__wrapper">
   <div class="schedule__header">
-    <h1 class="schedule__title">Schedule</h1>
+    <h2 class="schedule__title">Schedule</h2>
   </div>
-  <div class="schedule__grid"></div>
-</div>
+  <div class="schedule__grid">
+    <div class="schedule__card">
+      <h3 class="card__title">UAH 7s Tournament</h3>
+      <p class="card__date">Saturday, March 10th</p>
+    </div>
+    <div class="schedule__card">
+      <h3 class="card__title">UAH 7s Tournament</h3>
+      <p class="card__date">Saturday, March 10th</p>
+    </div>
+  </div>
 
-<style>
-  .schedule__image {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    min-height: 70vh;
-  }
-
-  .schedule__image::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url(/images/schedule-image.JPG);
-    background-size: cover;
-    background-position: center;
-    filter: blur(1px);
-    z-index: 1;
-  }
-
-  .schedule__image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey tint */
-    z-index: 2;
-  }
-
-  .schedule__practice {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    background-image: var(--gradient);
-    background-clip: text;
-    background-size: 700%;
-    color: transparent;
-    padding-inline: 2rem;
-  }
-
-  .schedule__wrapper {
-    margin: 2rem auto;
-    padding-inline: 2rem;
-    width: 80%;
-  }
-
-  .schedule__header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-  }
-
-  .schedule__title {
-    margin: 0;
-  }
-
-  @media screen and (max-width: 425px) {
-    .schedule__body {
-      font-size: 2rem;
+  <style>
+    .schedule__image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      min-height: 70vh;
     }
-  }
 
-  @keyframes shine {
-    0% {
-      background-position: left;
-    }
-    50% {
+    .schedule__image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url(/images/schedule-image.JPG);
+      background-size: cover;
       background-position: center;
+      filter: blur(1px);
+      z-index: 1;
     }
-    100% {
-      background-position: right;
+
+    .schedule__image::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey tint */
+      z-index: 2;
     }
-  }
-</style>
+
+    .schedule__practice {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      background-image: var(--gradient);
+      background-clip: text;
+      background-size: 700%;
+      color: var(--clr-white);
+      padding-inline: 2rem;
+    }
+
+    .schedule__wrapper {
+      margin: 2rem auto;
+      padding-inline: 2rem;
+      width: 80%;
+    }
+
+    .schedule__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .schedule__title {
+      margin: 0;
+    }
+
+    .schedule__grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .schedule__card {
+      flex: grid;
+      background-color: var(--clr-gold);
+      padding: 1rem;
+      border-radius: 0.1rem;
+      text-align: center;
+    }
+
+    .card__title {
+      margin: 0;
+      color: var(--clr-black);
+    }
+
+    .card__date {
+      margin: 0;
+    }
+
+    @media screen and (max-width: 425px) {
+      .schedule__body {
+        font-size: 2rem;
+      }
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: left;
+      }
+      50% {
+        background-position: center;
+      }
+      100% {
+        background-position: right;
+      }
+    }
+  </style>
+</div>
