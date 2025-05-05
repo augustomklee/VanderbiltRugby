@@ -3,6 +3,8 @@ import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import News from "../components/news/News.astro";
 import "../styles/global.css";
+import RosterComponent from "../components/Roster.astro";
+import ScheduleComponent from "../components/Schedule.astro";
 ---
 
 <html lang="en">
@@ -25,8 +27,18 @@ import "../styles/global.css";
   <body>
     <Header />
     <main>
-      <Hero />
-      <News />
+      <section id="hero">
+        <Hero />
+      </section>
+      <section id="roster">
+        <RosterComponent />
+      </section>
+      <section id="schedule">
+        <ScheduleComponent />
+      </section>
+      <section id="news">
+        <News />
+      </section>
     </main>
     <footer></footer>
   </body>

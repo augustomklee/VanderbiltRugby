@@ -6,13 +6,13 @@
   <nav>
     <ul class="nav__list">
       <li class="nav__list-item">
-        <a href="/" class="nav__link">Home</a>
+        <a href="#hero" class="nav__link">Home</a>
       </li>
       <li class="nav__list-item">
-        <a href="/roster" class="nav__link">Roster</a>
+        <a href="#roster" class="nav__link">Roster</a>
       </li>
       <li class="nav__list-item">
-        <a href="/schedule" class="nav__link">Schedule</a>
+        <a href="#schedule" class="nav__link">Schedule</a>
       </li>
     </ul>
   </nav>
@@ -31,30 +31,27 @@
   }
 
   .nav__list {
-    display: flex;
-    justify-content: center;
-    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
     width: 100%;
+    list-style: none;
+    margin: 0;
     padding: 0;
     text-transform: uppercase;
     font-size: var(--fs-400);
     letter-spacing: 1px;
-    margin: 0;
     gap: 2rem;
   }
 
-  .nav__list li:first-of-type {
-    margin-left: 2rem;
+  .nav__list-item:nth-child(1) {
+    justify-self: end;
   }
-
-  .nav__list li:last-of-type {
-    margin-right: 2rem;
+  .nav__list-item:nth-child(2) {
+    justify-self: center;
   }
-
-  @media (min-width: 425px) {
-    .nav__list {
-      gap: 3rem;
-    }
+  .nav__list-item:nth-child(3) {
+    justify-self: start;
   }
 
   .nav__link {

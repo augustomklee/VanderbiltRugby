@@ -6,107 +6,117 @@
   <div class="roster__grid">
     <div class="roster__card">
       <img
-        src="/images/coaches/head-coach.jpg"
+        src="dist/images/CoachSnell.jpeg"
         alt="Head Coach"
-        class="coach__image"
+        class="roster__image"
       />
-      <p class="roster__name">Head Coach James Snell</p>
+      <div class="roster__text__wrapper">
+        <h2>
+          Head Coach <br />
+          Jim Snell
+        </h2>
+        <p class="roster__text">
+          Head Coach Jim Snell began playing rugby in 1987 with the Vanderbilt
+          University Rugby Football Club. He started as assistant coach with the
+          club in 1995 and became head coach in January 2000, celebrating 25
+          years as head coach in 2025. Coach Snell has led Vanderbilt Rugby to
+          five regional playoffs and five national playoffs, most recently
+          winning the Southeastern Collegiate Rugby Conference DIII Championship
+          and progressing to the National College Rugby payoffs. Coach Snell
+          worked with other VURFC alumni in 2011 to create the Joe Franklin
+          Fund, a rugby endowment to support the activities of the club.
+        </p>
+      </div>
     </div>
+
     <div class="roster__card">
       <img
         src="/images/coaches/assistant-coach.jpg"
         alt="Assistant Coach"
-        class="coach__image"
+        class="roster__image"
       />
-      <p class="roster__name">Assistant Coach Dan</p>
+      <div class="roster__text__wrapper">
+        <h2>
+          Assistant Coach <br />
+          Dan Griff
+        </h2>
+        <p class="roster__text">
+          Assistant Coach Dan Griff Dan has been involved in rugby, either
+          playing or coaching, for 30 years. A former D1 player for the Chicago
+          Griffins, he was the starting fullback during their streak of Sweet 16
+          and back to back Final 4 appearances. Most recently, he was the head
+          coach of the Raptors Rugby High School team in Nashville, winning two
+          state championships in both 7s and 15s, helping the program to
+          national top 25 rankings among high school club teams.
+        </p>
+      </div>
     </div>
   </div>
-
-  <style>
-    .roster__wrapper {
-      margin: 5.3rem auto;
-      padding-inline: 2rem;
-      width: 80%;
-    }
-    .roster__header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-    }
-
-    .roster__grid {
-      display: grid;
-      grid-template-columns: repeat(1, minmax(250px, 2fr));
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    .roster__card {
-      background: var(--clr-gold);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: 0.2s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-    .roster__image {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      min-height: 70vh;
-    }
-
-    .roster__image::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url(/images/team-talk.JPG);
-      background-size: cover;
-      background-position: center;
-      filter: blur(1px);
-      z-index: 1;
-    }
-
-    .roster__image::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey tint */
-      z-index: 2;
-    }
-    .roster__header {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .roster__title {
-      margin: 0;
-    }
-
-    @keyframes shine {
-      0% {
-        background-position: left;
-      }
-      50% {
-        background-position: center;
-      }
-      100% {
-        background-position: right;
-      }
-    }
-  </style>
 </div>
+
+<style>
+  .roster__wrapper {
+    margin: 5.3rem auto;
+    padding-inline: 2rem;
+    width: 80%;
+  }
+  .roster__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .roster__grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(250px, 2fr));
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .roster__card {
+    background: var(--clr-gold);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: row;
+  }
+  .roster__image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto%;
+    min-width: 10vw;
+    margin: 1.5rem;
+  }
+  .roster__header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .roster__text {
+    margin: 1rem 1rem 1rem 0;
+  }
+
+  .roster__title {
+    margin: 0;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: left;
+    }
+    50% {
+      background-position: center;
+    }
+    100% {
+      background-position: right;
+    }
+  }
+</style>

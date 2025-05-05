@@ -63,3 +63,7 @@ h2 {
   font-size: var(--fs-700);
   font-weight: var(--fw-normal);
 }
+
+html {
+  scroll-behavior: smooth;
+}
