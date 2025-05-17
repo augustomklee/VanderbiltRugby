@@ -1,0 +1,1 @@
+import"./hoisted.Ez_FGStt.js";document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".hero__title"),n=new Date,t=n.getMonth(),o=n.getFullYear();e&&(t>=5&&t<=11?e.textContent=o+" FALL 15'S RUGBY SEASON":t>=0&&t<=4&&(e.textContent=o+" SPRING 7'S RUGBY SEASON"))});
