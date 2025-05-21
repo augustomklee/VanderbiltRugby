@@ -8,8 +8,7 @@ featuring responsive design, team information, match schedules, and media galler
 ![Website Screenshot](public/example.png)
 
 ## Live Site
-
-[Link to live website if available]
+[vurfc](https://vurfc.netlify.app/)
 
 ## Technologies
 
