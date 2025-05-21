@@ -8,7 +8,7 @@ featuring responsive design, team information, match schedules, and media galler
 ![Website Screenshot](public/example.png)
 
 ## Live Site
-[vurfc](https://vurfc.netlify.app/)
+[Vanderbilt University Rugby Football Club](https://vurfc.netlify.app/) (work in progress)
 
 ## Technologies
 
