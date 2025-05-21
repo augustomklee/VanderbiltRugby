@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Junior Sherrill",
+    "photo": "/images/players/junior-sherrill.jpg",
+    "position": "WR",
+    "class": "Junior",
+    "hometown": "Nashville, Tenn.",
+    "number": 0
+  },
+  {
+    "name": "Randon Fontenette",
+    "photo": "/images/players/randon-fontenette.jpg",
+    "position": "STAR",
+    "class": "Junior",
+    "hometown": "Freeport, Texas",
+    "number": 2
+  },
+  {
+    "name": "Diego Pavia",
+    "photo": "/images/players/diego-pavia.jpg",
+    "position": "QB",
+    "class": "Graduate",
+    "hometown": "Albuquerque, N.M.",
+    "number": 2
+  },
+  {
+    "name": "Bryan Longwell",
+    "photo": "/images/players/bryan-longwell.jpg",
+    "position": "LB",
+    "class": "Junior",
+    "hometown": "Nashville, Tenn.",
+    "number": 4
+  }
+] 

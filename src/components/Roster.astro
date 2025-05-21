@@ -1,22 +1,36 @@
+---
+import players from "../data/players.json";
+
+interface Player {
+  name: string;
+  photo: string;
+  position: string;
+  class: string;
+  hometown: string;
+  number: number;
+}
+
+const typedPlayers = players as Player[];
+---
+
 <div class="roster__wrapper">
   <div class="roster__header">
     <h1 class="roster__title">Coaches</h1>
   </div>
-
-  <div class="roster__grid">
-    <div class="roster__card">
-      <div class="roster__image__wrapper">
+  <div class="coach__grid">
+    <div class="coach__card">
+      <div class="coach__image__wrapper">
         <img
           src="/images/coaches/CoachSnell.jpeg"
           alt="Head Coach"
-          class="roster__image"
+          class="coach__image"
         />
-        <h2 class="roster__image__title">
+        <h2 class="coach__image__title">
           Head Coach <br />
           Jim Snell
         </h2>
       </div>
-      <p class="roster__text">
+      <p class="coach__text">
         Head Coach Jim Snell began playing rugby in 1987 with the Vanderbilt
         University Rugby Football Club. He started as assistant coach with the
         club in 1995 and became head coach in January 2000, celebrating 25 years
@@ -28,20 +42,19 @@
         endowment to support the activities of the club.
       </p>
     </div>
-
-    <div class="roster__card">
-      <div class="roster__image__wrapper">
+    <div class="coach__card">
+      <div class="coach__image__wrapper">
         <img
           src="/images/coaches/assistant-coach.jpg"
           alt="Assistant Coach"
-          class="roster__image"
+          class="coach__image"
         />
-        <h2 class="roster__image__title">
+        <h2 class="coach__image__title">
           Assistant Coach <br />
           Dan Griff
         </h2>
       </div>
-      <p class="roster__text">
+      <p class="coach__text">
         Assistant Coach Dan Griff Dan has been involved in rugby, either playing
         or coaching, for 30 years. A former D1 player for the Chicago Griffins,
         he was the starting fullback during their streak of Sweet 16 and back to
@@ -51,6 +64,39 @@
         rankings among high school club teams.
       </p>
     </div>
+  </div>
+
+  <div class="roster__header" style="margin-top: 2rem;">
+    <h1 class="roster__title">Players</h1>
+  </div>
+  <div class="player__grid">
+    {
+      typedPlayers.map((player: Player) => (
+        <div class="player__card">
+          <div class="player__image__wrapper">
+            <img src={player.photo} alt={player.name} class="player__image" />
+            <div class="player__number">{player.number}</div>
+          </div>
+          <div class="player__info">
+            <h2 class="player__name">{player.name}</h2>
+            <div class="player__details">
+              <div class="player__label">
+                <p>Position</p>
+                <div>{player.position}</div>
+              </div>
+              <div class="player__label">
+                <p>Class</p>
+                <div>{player.class}</div>
+              </div>{" "}
+              <div class="player__label">
+                <p>Hometown</p>
+                <div>{player.hometown}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
   </div>
 </div>
 
@@ -67,7 +113,8 @@
     margin-bottom: 1.5rem;
   }
 
-  .roster__grid {
+  /* Coach styles */
+  .coach__grid {
     display: grid;
     grid-template-columns: repeat(1, minmax(250px, 2fr));
     gap: 1.5rem;
@@ -75,7 +122,7 @@
     margin: 0;
   }
 
-  .roster__card {
+  .coach__card {
     background: var(--clr-gold);
     border-radius: 8px;
     overflow: hidden;
@@ -87,8 +134,12 @@
     flex-direction: row;
     padding: 1.5rem;
   }
-
-  .roster__image {
+  .coach__image__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .coach__image {
     width: 300px;
     min-width: 300px;
     height: 300px;
@@ -97,36 +148,99 @@
     border-radius: 4px;
     margin-right: 1.5rem;
   }
+  .coach__image__title {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .coach__text {
+    margin: 0;
+    color: var(--clr-white);
+  }
 
-  .roster__image__wrapper {
-    flex: 1;
+  /* Player styles */
+  .player__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+  .player__card {
+    background: var(--clr-gold);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+  }
+  .player__image__wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .player__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .player__number {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 0.25em 0.7em;
+    font-size: 1.2em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+  .player__info {
+    background: var(--clr-gold);
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
-  .roster__image__title {
-    text-align: center;
-    margin: 1rem 0;
+  .player__name {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-inline: auto;
+    margin-block: 1rem;
+    color: var(--clr-white);
   }
-
-  .roster__text {
-    margin: 0;
+  .player__details {
+    width: 100%;
+    background: #f3f3f3;
+    border-radius: 0 0 8px 8px;
+    padding: 1rem 3rem 1rem 0.5rem;
+  }
+  .player__label {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    text-transform: uppercase;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
     color: var(--clr-black);
-  }
-
-  .roster__title {
-    margin: 0;
+    letter-spacing: 0.5px;
+    /* padding-inline: 2rem; */
   }
 
   @media screen and (max-width: 768px) {
-    .roster__card {
+    .coach__card {
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-
-    .roster__image {
+    .coach__image {
       width: 100%;
       min-width: unset;
       height: auto;
@@ -134,21 +248,11 @@
       object-position: top;
       margin: 0;
     }
-
-    .roster__image__wrapper {
+    .coach__image__wrapper {
       width: 100%;
     }
-  }
-
-  @keyframes shine {
-    0% {
-      background-position: left;
-    }
-    50% {
-      background-position: center;
-    }
-    100% {
-      background-position: right;
+    .player__grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
