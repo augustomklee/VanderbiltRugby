@@ -5,11 +5,12 @@
 Official website for Vanderbilt Rugby developed with Astro framework and TypeScript,
 featuring responsive design, team information, match schedules, and media galleries.
 
-![Website Screenshot](public/example.png)
+![Website Screenshot](public/Hero.png)
+![IG API Screencshot](public/IG_API.png)
 
 ## Live Site
 
-[Link to live website if available]
+[Vanderbilt University Rugby Football Club](https://vurfc.netlify.app/) (work in progress)
 
 ## Technologies
 
