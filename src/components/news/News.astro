@@ -1,6 +1,4 @@
 ---
-import { instagramTokenManager } from "../../utils/instagramTokenManager";
-
 interface InstagramPost {
   id: string;
   caption?: string;
@@ -12,46 +10,13 @@ interface InstagramPost {
 }
 
 const INSTAGRAM_TOKEN = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
-const INSTAGRAM_APP_SECRET = import.meta.env.INSTAGRAM_APP_SECRET;
-
-// Constants for Instagram API
-const INSTAGRAM_API_BASE_URL = "https://graph.instagram.com";
 
 async function getInstagramPosts(): Promise<InstagramPost[]> {
   try {
-    console.log("Starting Instagram API call...");
-    console.log(
-      "Using token:",
-      INSTAGRAM_TOKEN ? "Token exists" : "No token found"
+    const response = await fetch(
+      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_TOKEN}`
     );
-
-    // Get a valid token (will be cached and refreshed automatically)
-    const token = await instagramTokenManager.getValidToken(
-      INSTAGRAM_TOKEN,
-      INSTAGRAM_APP_SECRET
-    );
-    console.log(
-      "Got valid token:",
-      token ? "Token received" : "No token received"
-    );
-
-    // Use the token to fetch posts
-    const apiUrl = `${INSTAGRAM_API_BASE_URL}/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${token}`;
-    console.log("Making API request to:", apiUrl);
-
-    const response = await fetch(apiUrl);
-    console.log("API Response status:", response.status);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("API Error:", errorText);
-      throw new Error(
-        `HTTP error! status: ${response.status}, message: ${errorText}`
-      );
-    }
-
     const data = await response.json();
-    console.log("API Response data:", data);
     return data.data || [];
   } catch (error) {
     console.error("Error fetching Instagram posts:", error);
@@ -60,7 +25,6 @@ async function getInstagramPosts(): Promise<InstagramPost[]> {
 }
 
 const posts = await getInstagramPosts();
-console.log("Final posts array:", posts);
 ---
 
 <div class="news__wrapper">
